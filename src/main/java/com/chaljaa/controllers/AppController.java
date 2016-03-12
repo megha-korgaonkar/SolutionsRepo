@@ -30,7 +30,7 @@ import com.chaljaa.service.UserService;
 public class AppController {
 
 	@Autowired
-	UserService userService;
+	UserService userService;//test
 	
 	@Autowired
 	UserProfileService userProfileService;
