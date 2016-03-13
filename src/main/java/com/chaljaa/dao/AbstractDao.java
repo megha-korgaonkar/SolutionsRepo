@@ -1,7 +1,6 @@
 package com.chaljaa.dao;
 
 import java.io.Serializable;
-
 import java.lang.reflect.ParameterizedType;
 
 import org.hibernate.Criteria;
