@@ -40,19 +40,15 @@ public abstract class ESEntityBase implements Serializable{
 		return version;
 	}
 
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
-
 	public Boolean getActive() {
-		return active;
-	}
-
+        return active;
+    }
+    
 	public void setActive(Boolean active) {
-		this.active = active;
-	}
+        this.active = active;
+    }
 
-	public Date getDateTimeModified() {
+    public Date getDateTimeModified() {
 		return dateTimeModified;
 	}
 
@@ -80,5 +76,4 @@ public abstract class ESEntityBase implements Serializable{
 	protected void onPreUpdate() {
 		dateTimeModified = new Date();
 	}
-
 }
