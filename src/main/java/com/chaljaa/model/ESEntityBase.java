@@ -10,9 +10,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
-
 @MappedSuperclass
-public abstract class ESEntityBase implements Serializable{
+public abstract class ESEntityBase implements Serializable {
 
 	/**
 	 * 
@@ -20,40 +19,54 @@ public abstract class ESEntityBase implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Version
-	@Column(name ="version")
-	private Integer version =0;
+	@Column(name = "version")
+	private Integer version = 0;
 
-	@Column(name ="active",nullable = false)
+	@Column(name = "active", nullable = false)
 	private Boolean active;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "modified", nullable = false)
 	private Date dateTimeModified;
 
-	@Column(name ="modified_by",length =50, nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "created", nullable = false)
+	private Date created;
+
+	@Column(name = "modified_by", length = 50, nullable = false)
 	private String modifiedBy;
 
-	@Column(name ="created_by",length =50, nullable = false)
+	@Column(name = "created_by", length = 50, nullable = false)
 	private String createdBy;
+
+	public ESEntityBase(Boolean active, Date created, Date modified,
+			String createdBy, String modifiedBy, Integer version) {
+		this.active = active;
+		this.createdBy = createdBy;
+		this.created = created;
+		this.modifiedBy = modifiedBy;
+		this.version = version;
+		this.dateTimeModified = modified;
+	}
+
+	public ESEntityBase() {
+
+	}
 
 	public Integer getVersion() {
 		return version;
 	}
 
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
-
 	public Boolean getActive() {
-		return active;
-	}
-
+        return active;
+    }
+    
 	public void setActive(Boolean active) {
-		this.active = active;
-	}
+        this.active = active;
+    }
 
-	public Date getDateTimeModified() {
-		return dateTimeModified;
+    public Date getDateTimeModified() {
+		return new Date();
 	}
 
 	public void setDateTimeModified(Date dateTimeModified) {
@@ -79,6 +92,13 @@ public abstract class ESEntityBase implements Serializable{
 	@PreUpdate
 	protected void onPreUpdate() {
 		dateTimeModified = new Date();
+	}
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
 	}
 
 }
