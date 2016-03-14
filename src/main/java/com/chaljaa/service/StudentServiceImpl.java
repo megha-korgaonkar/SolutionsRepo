@@ -58,6 +58,7 @@ public class StudentServiceImpl implements StudentService {
 				user.getMedical(), user.getFirstName(), user.getMiddleName(),
 				user.getLastName(), user.getStudentInfo(), user.getAddress(),
 				user.getUserCode());
+		es.setContacts(user.getContacts());
 		dao.save(es);
 
 	}

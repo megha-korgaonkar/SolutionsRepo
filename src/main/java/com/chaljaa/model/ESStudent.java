@@ -1,6 +1,7 @@
 package com.chaljaa.model;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -54,6 +57,10 @@ public class ESStudent extends ESEntityBase {
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "user_medical_id")
 	private ESMedical medical;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "es_user_contact_rel", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "contact_id", referencedColumnName = "contact_id"))
+	private List<ESContact> contacts;
 
 	public Integer getId() {
 		return id;
@@ -136,6 +143,14 @@ public class ESStudent extends ESEntityBase {
 
 	public void setMedical(ESMedical medical) {
 		this.medical = medical;
+	}
+
+	public List<ESContact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<ESContact> contacts) {
+		this.contacts = contacts;
 	}
 
 	public ESStudent(Boolean active, Date created, Date modified,

@@ -93,29 +93,41 @@
 				</div>
 			</div>
 
-			<!-- 		<div class="row"> -->
-			<!-- 			<div class="form-group col-md-12"> -->
-			<!-- 				<label class="col-md-3 control-lable" for="DOB">Mobile no.</label> -->
-			<!-- 				<div class="col-md-7"> -->
-			<%-- 					<form:input type="date" path="mobileContact.data" id="DOB" class="form-control input-sm" /> --%>
-			<!-- 					<div class="has-error"> -->
-			<%-- 						<form:errors path="guardianName" class="help-inline"/> --%>
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-			<!-- 		</div> -->
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-3 control-lable" for="Mobile">Mobile no.</label>
+							<div class="col-md-7">
+								<form:input type="text" path="phone" id="phone" class="form-control input-sm" />
+								<div class="has-error">
+									<form:errors path="phone" class="help-inline"/>
+								</div>
+							</div>
+						</div>
+					</div>
 
-			<!-- 		<div class="row"> -->
-			<!-- 			<div class="form-group col-md-12"> -->
-			<!-- 				<label class="col-md-3 control-lable" for="email">Email ID</label> -->
-			<!-- 				<div class="col-md-7"> -->
-			<%-- 					<form:input type="date" path="emailContact.data" id="email" class="form-control input-sm" /> --%>
-			<!-- 					<div class="has-error"> -->
-			<%-- 						<form:errors path="email" class="help-inline"/> --%>
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-			<!-- 		</div> -->
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-3 control-lable" for="email">Email ID</label>
+							<div class="col-md-7">
+								<form:input type="text" path="email" id="email" class="form-control input-sm" />
+								<div class="has-error">
+									<form:errors path="email" class="help-inline"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-3 control-lable" for="emergencyContact">Emergency Contact </label>
+							<div class="col-md-7">
+								<form:input type="text" path="emergencyContact" id="emergencyContact" class="form-control input-sm" />
+								<div class="has-error">
+									<form:errors path="emergencyContact" class="help-inline"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					
 			<div class="row">
 				<div class="form-group col-md-12">
 					<label class="col-md-3 control-lable" for="AddressLine1">Address
